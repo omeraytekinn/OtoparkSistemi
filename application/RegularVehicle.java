@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * Regular Vehicle Informations
+ * 
+ * @author oNiketya
+ *
+ */
 public class RegularVehicle implements Vehicle {
 	private String plate;
 	
@@ -15,4 +21,9 @@ public class RegularVehicle implements Vehicle {
 
 	@Override
 	public boolean isSpecial() { return true; }
+	
+	@Override
+	public String toString() {
+		return "Regular Vehicle";
+	}
 }

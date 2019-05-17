@@ -1,6 +1,7 @@
 package application;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Date {
 	private int day,
@@ -14,23 +15,31 @@ public class Date {
 	}
 	
 	public boolean isAfterThan(Date other) {
-		if(other.year < year)
+		if(year > other.year)
 			return true;
-		else if(other.month < year)
+		else if(year < other.year)
+			return false;
+		else if(month > other.month)
 			return true;
+		else if(month < other.month)
+			return false;
 		else if(other.day < day)
 			return true;
 		return false;		
 	}
 	
 	public boolean isBeforeThan(Date other) {
-		if(other.year > year)
+		if(year > other.year)
 			return true;
-		else if(other.month > year)
+		else if(year > other.year)
+			return false;
+		else if(month > other.month)
 			return true;
+		else if(month > other.month)
+			return false;
 		else if(other.day > day)
 			return true;
-		return false;		
+		return false;
 	}
 	
 	public boolean isEqualsWith(Date other) {
@@ -40,6 +49,12 @@ public class Date {
 	}
 	
 	public static Date getToday() {
-		return new Date(Calendar.DAY_OF_MONTH,Calendar.MONTH,Calendar.YEAR);
+		Calendar calendar = GregorianCalendar.getInstance();
+		calendar.setTime(new java.util.Date());
+		return new Date(calendar.get(Calendar.DAY_OF_MONTH),calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
+	}
+	
+	public String toString() {
+		return day + "/" + month + "/" + year;
 	}
 }

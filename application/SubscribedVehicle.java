@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * Subscribed Vehicle Informations
+ * 
+ * @author oNiketya
+ *
+ */
 public class SubscribedVehicle implements Vehicle {
 	private String plate;
 	private Subscription subscription;
@@ -17,4 +23,9 @@ public class SubscribedVehicle implements Vehicle {
 
 	@Override
 	public boolean isSpecial() { return true; }
+	
+	@Override
+	public String toString() {
+		return "Subscribed Vehicle";
+	}
 }
